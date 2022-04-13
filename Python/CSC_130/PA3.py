@@ -1,11 +1,19 @@
 #Simple algorithm for checking primality
 def isprime(x: int):
-    xold=x-1
-    while xold>1:
-        if x%xold==0:
-            return False
-        else: xold=xold-1
-    return True
+    if x>0:
+        xold=x-1
+        while xold>1:
+            if x%xold==0:
+                return False
+            else: xold=xold-1
+        return True
+    else:
+        xold=x+1
+        while xold<-1:
+            if x%xold==0:
+                return False
+            else: xold=xold+1
+        return True
 
 #Determines parity
 def isodd(x: int):
@@ -25,14 +33,14 @@ def maxproduct(x,y,z):
     max2=max(tuple(S))
     return max1*max2
 
-
+# Main
 if __name__=="__main__":
     x=int(input('Enter a number:\t'))
     y=int(input('Enter a number:\t'))
     z=int(input('Enter a number:\t'))
 
     print('--------------------------')
-    print('Num\tEven\tPrime')
+    print('Num\tParity\tPrime')
     print('--------------------------')
     print('{}\t{}\t{}'.format(x,isodd(x),isprime(x)))
     print('{}\t{}\t{}'.format(y,isodd(y),isprime(y)))
